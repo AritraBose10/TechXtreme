@@ -974,6 +974,7 @@ const IdeathonForm = ({ onSubmit }) => {
     description: "",
   });
   const [success, setSuccess] = useState(false);
+  const router = useRouter();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -1296,7 +1297,15 @@ const IdeathonForm = ({ onSubmit }) => {
                 </AnimatePresence>
               </form>
             </motion.div>
-            <BackButton />
+            <button
+              onClick={() => window.location.reload()}
+              className="relative mt-6 ml-16 px-12 py-6 rounded-lg font-medium tracking-wider uppercase text-sm text-white shadow-[0_4px_10px_rgba(128,0,128,0.5)] transition-all duration-500 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30
+              before:absolute before:inset-0 before:bg-gradient-to-r before:from-purple-700 before:to-purple-600 before:opacity-0 before:transition-opacity before:duration-500 before:hover:opacity-100 overflow-hidden"
+            >
+              <span className="relative z-10 flex items-center">
+                Back to Main Page
+              </span>
+            </button>
           </div>
         </>
       )}
