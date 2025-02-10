@@ -247,9 +247,10 @@ const CyberpunkSuccess = ({ setSubmitted, setActiveRegistration }) => {
 
                 <div className="flex justify-center">
                   <motion.button
+                    type="button"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    onClick={() => router.push("/")}
+                    onClick={() => window.location.reload()}
                     className="group relative px-8 py-3 bg-cyan-500/10 rounded-lg overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/40 to-cyan-400/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -1482,16 +1483,16 @@ const GenAIForm = ({ onSubmit }) => {
                       name={field.name}
                       value={formData[field.name]}
                       onChange={handleInputChange}
-                      className="w-full bg-black/5 backdrop-blur-sm border-2 border-cyan-500/30 rounded-lg
-                    px-4 py-2 text-white focus:border-cyan-400 focus:ring-cyan-400 transition-colors
-                    hover:border-cyan-400/50"
+                      className="w-full bg-black text-white border-2 border-cyan-500/30 rounded-lg
+                   px-4 py-2 focus:border-cyan-400 focus:ring-cyan-400 transition-colors
+                   hover:border-cyan-400/50"
                     >
                       <option value="">Select size</option>
                       {field.options.map((option) => (
                         <option
                           key={option}
                           value={option}
-                          className="bg-black-800"
+                          className="text-white"
                         >
                           {option}
                         </option>
@@ -1610,7 +1611,7 @@ const CulturalForm = ({ onSubmit }) => {
   return (
     <div className={`${playFont.className} text-xl`}>
       {isSubmitted ? (
-        <CyberPunkSuccess />
+        <CyberpunkSuccess />
       ) : (
         <div className="min-h-screen p-6 flex items-center justify-center bg-black relative overflow-hidden">
           {/* Cyberpunk Grid Background */}
@@ -1786,11 +1787,11 @@ const CulturalForm = ({ onSubmit }) => {
                         <option value="music" className="bg-black">
                           Musical Performance
                         </option>
-                        <option value="drama" className="bg-black">
-                          Drama
+                        <option value="Instrumental" className="bg-black">
+                          Instrumental
                         </option>
-                        <option value="poetry" className="bg-black">
-                          Poetry
+                        <option value="Standup Comedy" className="bg-black">
+                          Standup Comedy
                         </option>
                         <option value="other" className="bg-black">
                           Other
@@ -2490,7 +2491,7 @@ const TechXtremeApp = () => {
                       >
                         <span className="relative z-10 flex items-center">
                           <Award className="mr-3 inline" strokeWidth={1.5} />
-                          Ideathon Registration
+                          Day 1 Registration
                         </span>
                       </button>
 
@@ -2501,7 +2502,7 @@ const TechXtremeApp = () => {
                       >
                         <span className="relative z-10 flex items-center">
                           <Users className="mr-3 inline" strokeWidth={1.5} />
-                          Cultural Fest Registration
+                          Day 2 Registration
                         </span>
                       </button>
                     </div>
