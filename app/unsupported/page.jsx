@@ -252,7 +252,7 @@ const Unsupported = () => {
 
         <div className="space-x-4">
           <a
-            href="https://forms.gle/E2RJPZt2bbks1i94A"
+            href="https://linktr.ee/techxtreme2025"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-black font-bold rounded-lg transition-all hover:scale-105 hover:shadow-cyan-500/50 hover:shadow-lg"

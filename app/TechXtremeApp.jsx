@@ -1561,7 +1561,7 @@ const GenAIForm = ({ onSubmit }) => {
 
 import { PartyPopper, Sparkles } from "lucide-react";
 
-import { BookText, Palette, Theater } from "lucide-react";
+import { Palette, Theater } from "lucide-react";
 
 const CulturalForm = ({ onSubmit }) => {
   const [step, setStep] = useState(0);
@@ -1581,7 +1581,6 @@ const CulturalForm = ({ onSubmit }) => {
     { icon: Palette, label: "Registration" },
     { icon: Mic, label: "Event Selection" },
     { icon: Theater, label: "Performance Details" },
-    { icon: BookText, label: "Final Details" },
   ];
 
   const handleChange = (e) => {
@@ -1594,7 +1593,8 @@ const CulturalForm = ({ onSubmit }) => {
     }));
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       const response = await axios.post(
         "https://techxtreme.onrender.com/api/submit",
@@ -1605,7 +1605,7 @@ const CulturalForm = ({ onSubmit }) => {
       );
 
       console.log(response.data.message);
-      setIsSubmitted(true); // Mark form as submitted
+      setIsSubmitted(true);
     } catch (error) {
       console.error(
         "Error submitting form:",
@@ -1620,7 +1620,9 @@ const CulturalForm = ({ onSubmit }) => {
   return (
     <div className={`${playFont.className} text-xl`}>
       {isSubmitted ? (
-        <CyberpunkSuccess />
+        <div className="min-h-screen p-6 flex items-center justify-center bg-black relative overflow-hidden">
+          <CyberpunkSuccess />
+        </div>
       ) : (
         <div className="min-h-screen p-6 flex items-center justify-center bg-black relative overflow-hidden">
           {/* Cyberpunk Grid Background */}
@@ -1850,30 +1852,6 @@ const CulturalForm = ({ onSubmit }) => {
                   </div>
 
                   {/* Step 4 */}
-                  <div
-                    className={`absolute w-full transition-all duration-500 ${
-                      step === 3
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-0 translate-x-full pointer-events-none"
-                    }`}
-                  >
-                    <div className="space-y-4">
-                      <input
-                        type="date"
-                        name="date"
-                        value={formData.date}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-500/30 text-purple-100 placeholder-purple-400/50 focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20 transition-all"
-                      />
-                      <textarea
-                        name="requirements"
-                        placeholder="Special Requirements"
-                        value={formData.requirements}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-500/30 text-purple-100 placeholder-purple-400/50 focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20 transition-all resize-none h-24"
-                      />
-                    </div>
-                  </div>
                 </div>
 
                 {/* Enhanced Navigation Buttons */}
